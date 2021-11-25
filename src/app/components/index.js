@@ -2,8 +2,9 @@ import settings from "./Settings";
 import home from "./Home";
 import footer from "./Footer";
 import button from "./Button"
+import menu from "./Menu"
 
-let components = [
-  settings, home, footer, button
-]
+let components = {
+  button, settings, home, footer, menu
+}
 export default components;

@@ -1,5 +1,4 @@
 import getCurrentUrl from "@/utils/getUrl";
-import htmlToElement from "@/utils/htmlToElement";
 
 export default class Module {
   constructor(config) {
@@ -9,24 +8,32 @@ export default class Module {
   }
 
   renderApp() {
-    console.log(this.components);
+    console.log(this);
     this.connect();
   }
 
   connect() {
-    this.components.forEach(c => c.render())
-    // if (this.routes) this.renderRoutes();
+    Object.values(this.components).forEach(c => c.render())
+    if (this.routes) this.renderRoutes();
   }
 
   renderRoutes() {
-    window.addEventListener('hashchange', this.changeRoute.bind(this));
     this.changeRoute();
+    window.addEventListener('hashchange', this.changeRoute.bind(this));
   }
 
   changeRoute() {
     let url = getCurrentUrl();
-    let route = this.routes.find(hash => hash.path.slice(1) === url);
-    if (route) route.component.render();
+    console.log(this.routes)
+    let route = this.routes.find(hash => {
+      if (Array.isArray(hash.path))
+        console.log(hash)
+        if (hash.path.includes(url))
+          return hash.path
+      else
+        hash.path.slice(1) === url
+    });
     console.log(route)
+    if (route) route.component.forEach(c => c.render());
   }
 }

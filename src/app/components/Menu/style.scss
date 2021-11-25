@@ -1,0 +1,16 @@
+.menu {
+  height: 100%;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin: 0 auto;
+    width: 90%;
+    height: 70%;
+  }
+  &__item {
+    // height: 40%;
+    // width: 20%;
+    border: 1px solid red;
+  }
+}

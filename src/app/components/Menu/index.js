@@ -1,5 +1,6 @@
+import './style.scss'
 import Component from '@/app/core/component';
-import MenuElement from './index.html';
+import MenuElement from './menu.html';
 
 class Menu extends Component {
   constructor(config) {
@@ -8,7 +9,7 @@ class Menu extends Component {
 }
 
 const menu = new Menu({
-  classSelector: 'main',
+  classSelector: 'main-wrapper',
   template: MenuElement
 })
 

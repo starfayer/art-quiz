@@ -2,6 +2,7 @@ import './style.scss'
 import ButtonElement from './button.html';
 import Component from '@/app/core/component';
 import htmlToElement from '@/utils/htmlToElement';
+import changeHash from '@/utils/changeHash';
 
 class Button extends Component {
   constructor(config) {
@@ -10,15 +11,19 @@ class Button extends Component {
 
   events() {
     return {
-      '.button click': this.delayClick
+      '.button click': this.clickEvent
     }
   }
 
-  delayClick(event) {
+  clickEvent(event) {
     event.target.style.background = '#fff';
     event.target.style.color = '#000';
-    setTimeout(() => event.target.removeAttribute('style'), 1000)
+    setTimeout(() => event.target.removeAttribute('style'), 1000);
+
+    let hashSelector = event.target.parentNode.classList[1].split('--').pop();
+    changeHash(hashSelector)
   }
+
 }
 
 const button = new Button({
