@@ -16,12 +16,12 @@ class Main extends Component {
     }
   }
 
-  events() {
-    return {
-      '.home__button click': this.delayClick,
-      '.home__button click': this.changeHash
-    }
-  }
+  // events() {
+  //   return {
+  //     '.home__button click': this.delayClick,
+  //     '.home__button click': this.changeHash
+  //   }
+  // }
 
   delayClick(event) {
     event.target.style.background = '#fff';

@@ -3,7 +3,7 @@ import htmlToElement from "@/utils/htmlToElement";
 
 export default class Component {
   constructor(config) {
-    this.scalable = config.scalable || null;
+    this.scalable = config.scalable;
     if (!this.scalable)  {
       this.classSelector = config.classSelector;
       this.el = document.querySelector(`.${this.classSelector}`) || null;
@@ -12,9 +12,6 @@ export default class Component {
   }
 
   render() {
-    if (this.scalable) {
-      
-    }
     if (!this.scalable) {
       if (!this.el)
         throw new Error(`Component with ${this.classSelector} wasn't found`);
@@ -33,7 +30,7 @@ export default class Component {
       let listener = key.split(' ');
       let classSelector = listener[0];
       let event = listener[1];
-      
+
       let element = document.querySelectorAll(classSelector);
       if (element.length == 1)
         document.querySelector(classSelector).addEventListener(event, events[key].bind(this));
@@ -46,14 +43,16 @@ export default class Component {
     if (!this.external) return;
 
     let externalObj = this.external();
-    Object.keys(externalObj).forEach(data => {
-      let selector = data;
-      let element = externalObj[data][0];
-      let text = externalObj[data][1];
+    Object.keys(externalObj).forEach(selector => {
+      let element = externalObj[selector][0];
+      let template = htmlToElement(element.template);
+      let text = externalObj[selector][1];
+      let newElement = changeElementText(template.cloneNode(true), text);
 
-      let newElement = changeElementText(element.cloneNode(true), text);
-      newElement.id = selector.split('--').slice(-1);
       document.querySelector(selector).appendChild(newElement);
+      this._initEvents.bind(element);
+
+      newElement.id = selector.split('--').slice(-1);
     })
   }
 
