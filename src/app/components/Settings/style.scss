@@ -1,13 +1,12 @@
 .settings {
   height: 100%;
-  // transition: all 1s ease-in-out;
   &__container {
     height: inherit;
     @include center-position(92%);
   }
   &__open-close-btn{
     position: absolute;
-    top: 4%;
+    top: 3%;
     left: -5%;
     width: 36px;
     height: 36px;

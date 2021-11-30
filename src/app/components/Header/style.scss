@@ -1,0 +1,26 @@
+.header {
+  height: 62px;
+  margin-top: 1%;
+  &__container {
+    display: flex;
+    width: 92%;
+    margin: 0 auto;
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6%;
+    width: 14%;
+  }
+  &__link {
+    transition: all .2s ease-in-out;
+  }
+  &__link:hover {
+    color: $orange-color;
+  }
+}
+
+.active {
+  color: $orange-color;
+}

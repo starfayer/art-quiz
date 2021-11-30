@@ -13,7 +13,7 @@ export default class Module {
   }
 
   connect() {
-    Object.values(this.components).forEach(c => c.render())
+    // Object.values(this.components).forEach(c => c.render())
     if (this.routes) this.renderRoutes();
   }
 
@@ -23,17 +23,19 @@ export default class Module {
   }
 
   changeRoute() {
-    let url = getCurrentUrl();
-    console.log(this.routes)
-    let route = this.routes.find(hash => {
-      if (Array.isArray(hash.path))
-        console.log(hash)
-        if (hash.path.includes(url))
-          return hash.path
-      else
-        hash.path.slice(1) === url
-    });
-    console.log(route)
-    if (route) route.component.forEach(c => c.render());
+    setTimeout(() => {
+      document.querySelector('.content').childNodes.forEach(el => el.innerHTML = '')
+
+      let url = getCurrentUrl();
+      console.log(this.routes)
+      let route = this.routes.find(hash => {
+        if (Array.isArray(hash.path))
+          if (hash.path.includes(url))
+            return hash.path
+        else
+          hash.path.slice(1) === url
+      });
+      if (route) route.component.forEach(c => c.render());  
+    }, 500)
   }
 }

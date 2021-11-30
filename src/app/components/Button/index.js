@@ -1,7 +1,6 @@
 import './style.scss'
 import ButtonElement from './button.html';
 import Component from '@/app/core/component';
-import htmlToElement from '@/utils/htmlToElement';
 import changeHash from '@/utils/changeHash';
 
 class Button extends Component {
@@ -31,6 +30,5 @@ const button = new Button({
   classSelector: 'button',
   template: ButtonElement
 })
-// const button = htmlToElement(ButtonElement);
 
 export default button;

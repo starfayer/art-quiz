@@ -16,7 +16,8 @@ export default class Component {
       if (!this.el)
         throw new Error(`Component with ${this.classSelector} wasn't found`);
       this.rewriteTag();
-      console.log(this.el);
+      this._initFunctions();
+      // console.log(this.el);
     }
     this._initExternal();
     this._initEvents();
@@ -54,6 +55,12 @@ export default class Component {
 
       newElement.id = selector.split('--').slice(-1);
     })
+  }
+
+  _initFunctions() {
+    if (!this.functions) return
+
+    this.functions();
   }
 
   rewriteTag() {

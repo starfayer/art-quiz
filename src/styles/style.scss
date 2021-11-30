@@ -9,8 +9,18 @@ body {
   font-family: 'Gilroy';
   font-weight: $medium-font-weight;
   color: #fff;
+  transition: all 1s ease-in-out;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.opacity {
+  opacity: 0;
+}
 .background {
   height: inherit;
   background-size: cover;
