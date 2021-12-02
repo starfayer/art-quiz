@@ -1,0 +1,44 @@
+.quiz {
+  height: 92%;
+  &__container {
+    height: 100%;
+    width: 68%;
+    margin: 0 auto;
+  }
+  &__header {
+    height: 12%;
+  }
+}
+
+.timer {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__button {
+    @include cross-button;
+  }
+  
+  &__slider {
+    background: $orange-color;
+    border-radius: 8px;
+    height: 4px;
+    width: 80%;
+    outline: none;
+    cursor: ew-resize;
+    -webkit-appearance: none;
+  }
+  &__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1px; 
+    height: 1px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__time {
+    font-size: 28px;
+  }
+}
