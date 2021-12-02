@@ -38,10 +38,7 @@
   }
 
   &__header-btn {
-    width: 36px;
-    height: 36px;
-    @include button-layout;
-    background-image: url(../assets/close-btn.svg);
+    @include cross-button;
   }
 
   &__inner {
