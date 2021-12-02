@@ -1,4 +1,5 @@
 import { homePage } from './Home'
+import { menuPage } from './Menu'
 import { quizPage } from './Quiz'
 
-export { homePage, quizPage }
+export { homePage, menuPage, quizPage }

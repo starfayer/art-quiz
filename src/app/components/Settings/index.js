@@ -23,8 +23,7 @@ class Settings extends Component {
       '.settings__open-close-btn click': this.openSettings,
       '.settings__header-btn click': this.openSettings,
       '.settings__header-text click': this.openSettings,
-      '.settings__slider change': this.changeVolume,
-      '.settings__config-button click': this.delayClick
+      '.settings__slider change': this.changeVolume
     }
   }
 
@@ -41,12 +40,6 @@ class Settings extends Component {
   changeVolume(event) { 
     let value = event.target.value;
     event.target.style.backgroundImage = `linear-gradient(to right, #FFBCA2 0%, #FFBCA2 0%, #FFBCA2 ${value}%, #A4A4A4 0%, #A4A4A4 0%,#A4A4A4 ${event.target.max - value}%)`;
-  }
-
-  delayClick(event) {
-    event.target.style.background = '#fff';
-    event.target.style.color = '#000';
-    setTimeout(() => event.target.removeAttribute('style'), 1000)
   }
 
   external() {

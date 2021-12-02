@@ -19,8 +19,10 @@ class Button extends Component {
     event.target.style.color = '#000';
     setTimeout(() => event.target.removeAttribute('style'), 1000);
 
-    let hashSelector = event.target.parentNode.classList[1].split('--').pop();
-    changeHash(hashSelector)
+    if (event.target.parentNode.classList[0].split('__')[0] != 'settings') {
+      let hashSelector = event.target.parentNode.classList[1].split('--').pop();
+      changeHash(hashSelector);
+    }
   }
 
 }

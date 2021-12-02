@@ -1,8 +1,8 @@
-import { homePage } from './index'
-import { quizPage } from './Quiz'
+import { homePage, menuPage, quizPage } from './index'
 
-let routes = [
+const routes = [
   {path: [ '#', '' ], component: homePage},
-  {path: ['#artists', '#pictures'], component: quizPage}
+  {path: ['#artists', '#pictures'], component: menuPage},
+  {path: '#quiz', component: quizPage}
 ]
 export default routes;

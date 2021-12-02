@@ -30,10 +30,9 @@ export default class Module {
       console.log(this.routes)
       let route = this.routes.find(hash => {
         if (Array.isArray(hash.path))
-          if (hash.path.includes(url))
-            return hash.path
+          return hash.path.includes(url)
         else
-          hash.path.slice(1) === url
+          return hash.path === url
       });
       if (route) route.component.forEach(c => c.render());  
     }, 500)
